@@ -5,4 +5,4 @@ IntelliWear is a full-stack web application developed using Flask, MySQL, HTML, 
 
 Video (24951A6686) : https://youtu.be/CX_ZkvDR-s4
 
-Video (24951A6699) : 
+Video (24951A6699) : https://1drv.ms/f/c/7c13d552e341bc14/IgBjFZQoHda0ToxD90CvGaz2AQhc_iSvpIdFN7fKUxTeAh8?e=tXWe6z
