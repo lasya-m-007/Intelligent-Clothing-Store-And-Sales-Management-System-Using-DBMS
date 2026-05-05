@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sales | IntelliWear</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div class="wrapper">
+
+<!-- Sidebar -->
+<div class="sidebar">
+
+<div class="menu-icon">☰</div>
+
+<div class="nav-top">
+<a href="/dashboard">🏠 <span>Dashboard</span></a>
+<a href="/products">📦 <span>Products</span></a>
+<a href="/sales">💳 <span>Sales</span></a>
+</div>
+
+<a href="/logout" class="logout-btn">
+🚪 <span>Logout</span>
+</a>
+
+</div>
+<!-- Main Content -->
+<div class="main-content">
+
+<h1 class="page-title">Sales Entry</h1>
+<p class="page-subtitle">
+Search products, generate bills and track sales history.
+</p>
+
+<!-- Search Product -->
+<form method="POST">
+
+<input type="number"
+name="pid"
+placeholder="Enter Product ID"
+required>
+
+<button type="submit">Search Product</button>
+
+</form>
+
+<!-- Product Found -->
+{% if product %}
+
+<div class="card" style="margin-bottom:25px;">
+
+<h2 style="margin-bottom:14px;">Product Found</h2>
+
+<p><strong>ID:</strong> {{ product[0] }}</p>
+<p><strong>Name:</strong> {{ product[1] }}</p>
+<p><strong>Category:</strong> {{ product[2] }}</p>
+<p><strong>Price:</strong> ₹{{ product[3] }}</p>
+
+<p>
+<strong>Stock:</strong>
+
+{% if product[4] < 10 %}
+<span class="badge-low">{{ product[4] }}</span>
+{% else %}
+<span class="badge-good">{{ product[4] }}</span>
+{% endif %}
+
+</p>
+
+</div>
+
+<!-- Billing Form -->
+<form method="POST">
+
+<input type="hidden"
+name="pid"
+value="{{ product[0] }}">
+
+<input type="number"
+name="qty"
+placeholder="Enter Quantity"
+required>
+
+<button type="submit">Generate Bill</button>
+
+</form>
+
+{% endif %}
+
+<!-- Sales History -->
+<h2 style="margin:25px 0 15px 0;">Sales History</h2>
+
+<table>
+
+<tr>
+<th>Sale ID</th>
+<th>Product ID</th>
+<th>Product</th>
+<th>Qty</th>
+<th>Total</th>
+<th>Date</th>
+</tr>
+
+{% for s in sales %}
+
+<tr>
+
+<td>{{ s[0] }}</td>
+<td>{{ s[1] }}</td>
+<td>{{ s[2] }}</td>
+<td>{{ s[3] }}</td>
+<td>₹{{ s[4] }}</td>
+<td>{{ s[5] }}</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+</div>
+
+</div>
+
+</body>
+</html>

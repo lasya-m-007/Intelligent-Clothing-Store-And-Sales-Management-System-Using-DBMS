@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IntelliWear | Smart Clothing Store</title>
+<link rel="stylesheet" href="/static/style.css">
+
+<style>
+
+body{
+background:linear-gradient(135deg,#eff6ff,#dbeafe,#f8fafc);
+}
+
+.landing{
+min-height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+padding:40px;
+}
+
+.hero-box{
+max-width:1250px;
+width:100%;
+display:grid;
+grid-template-columns:1.1fr 0.9fr;
+gap:50px;
+align-items:center;
+}
+
+.hero-text h1{
+font-size:64px;
+line-height:1.1;
+font-weight:800;
+margin-bottom:20px;
+color:#0f172a;
+}
+
+.hero-text h1 span{
+color:#2563eb;
+}
+
+.hero-text p{
+font-size:20px;
+color:#475569;
+line-height:1.8;
+margin-bottom:28px;
+max-width:600px;
+}
+
+.hero-buttons{
+display:flex;
+gap:16px;
+margin-bottom:35px;
+flex-wrap:wrap;
+}
+
+.btn-light{
+background:white;
+color:#111827;
+border:1px solid #dbeafe;
+}
+
+.stats{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:18px;
+}
+
+.stat{
+background:white;
+padding:22px;
+border-radius:20px;
+box-shadow:0 10px 25px rgba(0,0,0,0.05);
+}
+
+.stat h3{
+font-size:30px;
+color:#2563eb;
+margin-bottom:8px;
+}
+
+.stat p{
+font-size:14px;
+color:#64748b;
+}
+
+.login-card{
+background:white;
+padding:38px;
+border-radius:24px;
+box-shadow:0 20px 45px rgba(37,99,235,0.08);
+border:1px solid #eef2ff;
+}
+
+.login-card h2{
+font-size:28px;
+margin-bottom:8px;
+color:#0f172a;
+}
+
+.login-card p{
+color:#64748b;
+margin-bottom:22px;
+}
+
+.login-card input{
+background:#f8fafc;
+}
+
+.login-card button{
+width:100%;
+}
+
+.error-msg{
+background:#dc2626;
+color:white;
+padding:12px;
+border-radius:12px;
+margin-bottom:14px;
+font-size:14px;
+}
+
+.top-nav{
+position:absolute;
+top:0;
+left:0;
+width:100%;
+padding:24px 50px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+.brand{
+font-size:30px;
+font-weight:800;
+color:#0f172a;
+}
+
+.brand span{
+color:#2563eb;
+}
+
+.nav-links a{
+margin-left:24px;
+text-decoration:none;
+color:#475569;
+font-weight:600;
+}
+
+.nav-links a:hover{
+color:#2563eb;
+}
+
+@media(max-width:950px){
+
+.hero-box{
+grid-template-columns:1fr;
+}
+
+.hero-text h1{
+font-size:48px;
+}
+
+.stats{
+grid-template-columns:1fr;
+}
+
+.top-nav{
+padding:20px;
+flex-direction:column;
+gap:10px;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="top-nav">
+<div class="brand">Intelli<span>Wear</span></div>
+
+<div class="nav-links">
+<a href="/">Home</a>
+<a href="/dashboard">Dashboard</a>
+<a href="/products">Products</a>
+<a href="/sales">Sales</a>
+</div>
+</div>
+
+<section class="landing">
+
+<div class="hero-box">
+
+<div class="hero-text">
+
+<h1>Run Your <span>Clothing Store</span> Like a Real Business</h1>
+
+<p>
+IntelliWear helps fashion stores manage products, sales,
+billing, inventory and business growth with one smart platform.
+</p>
+
+<div class="hero-buttons">
+<a href="/dashboard"><button>Open Dashboard</button></a>
+<a href="/products"><button class="btn-light">Manage Products</button></a>
+</div>
+
+<div class="stats">
+
+<div class="stat">
+<h3>99%</h3>
+<p>Inventory Accuracy</p>
+</div>
+
+<div class="stat">
+<h3>2x</h3>
+<p>Faster Billing</p>
+</div>
+
+<div class="stat">
+<h3>24/7</h3>
+<p>Cloud Access</p>
+</div>
+
+</div>
+
+</div>
+
+<div class="login-card">
+
+<h2>Staff Login</h2>
+<p>Securely access your business dashboard.</p>
+
+{% if error %}
+<div class="error-msg">{{ error }}</div>
+{% endif %}
+
+<form method="POST">
+
+<input type="text"
+name="username"
+placeholder="Enter Username"
+required>
+
+<input type="password"
+name="password"
+placeholder="Enter Password"
+required>
+
+<button type="submit">Login</button>
+
+</form>
+
+</div>
+
+</div>
+
+</section>
+
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard | IntelliWear</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div class="wrapper">
+
+<!-- Sidebar -->
+<div class="sidebar">
+
+<div class="menu-icon">☰</div>
+
+
+<div class="nav-top">
+<a href="/dashboard">🏠 <span>Dashboard</span></a>
+<a href="/products">📦 <span>Products</span></a>
+<a href="/sales">💳 <span>Sales</span></a>
+</div>
+
+<a href="/logout" class="logout-btn">
+🚪 <span>Logout</span>
+</a>
+
+</div>
+
+<!-- Main Content -->
+<div class="main-content">
+
+<h1 class="page-title">Store Dashboard</h1>
+<p class="page-subtitle">
+Welcome back. Here is your live business overview.
+</p>
+
+<!-- Stats Cards -->
+<div class="cards">
+
+<div class="card">
+<h2>Total Products</h2>
+<p>{{ total_products }}</p>
+</div>
+
+<div class="card">
+<h2>Total Sales</h2>
+<p>{{ total_sales }}</p>
+</div>
+
+<div class="card">
+<h2>Total Revenue</h2>
+<p>₹{{ revenue }}</p>
+</div>
+
+<div class="card">
+<h2>Low Stock Items</h2>
+<p>{{ low_stock }}</p>
+</div>
+
+</div>
+
+<!-- Quick Actions -->
+<div class="card">
+
+<h2 style="margin-bottom:18px;">Quick Actions</h2>
+
+<div style="display:flex; gap:12px; flex-wrap:wrap;">
+
+<a href="/products">
+<button>Manage Products</button>
+</a>
+
+<a href="/sales">
+<button>Record Sales</button>
+</a>
+
+<a href="/logout">
+<button style="background:#ef4444;">
+Logout
+</button>
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</body>
+</html>
